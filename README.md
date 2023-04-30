@@ -33,10 +33,12 @@ etcdctl -h
 
 ### Backup
 Backup the database. set `ETCDCTL_API` to 3 to make sure the client uses ETCD v3 APIs
-
-To make use of etcdctl for tasks such as back up and restore, make sure that you set the ETCDCTL_API to 3.
 ```
 ETCDCTL_API=3 etcdctl snapshot backup -h
+```
+**etcdctl** requires details such as ETCD endpoint, CA cert, server cert and keys. We can easily find out these from its manifest file at `/etc/kubernetes/manifests/etcd.yaml` or by describing etcd pod in `kube-system` namespace 
+```
+kubectl describe pod etcd-master-node -n kube-system
 ```
 ```
 ETCDCTL_API=3 etcdctl \
@@ -61,7 +63,7 @@ Delete the data directory of etcd. Find the location of data dir from its manife
 ```
 rm -rf /var/lib/etcd
 ```
-Restore
+Restore the data by selecting the data dir with `--data-dir` flag
 ```
 ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-snapshot.db \
     --endpoints=https://[127.0.0.1]:2379 \
