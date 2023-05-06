@@ -72,3 +72,6 @@ ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-snapshot.db \
     --key=/etc/kubernetes/pki/etcd/server.key \
     --data-dir=/var/lib/etcd
 ```
+
+## Links
+https://raft.github.io/
