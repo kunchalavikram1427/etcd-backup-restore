@@ -75,3 +75,6 @@ ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-snapshot.db \
 
 ## Links
 https://raft.github.io/
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/setup-ha-etcd-with-kubeadm/
+https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
